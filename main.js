@@ -27,7 +27,7 @@ function getRandomNumber(min, max){
 //6 countLetter
 function countLetter(letter, word) {
     let result = 0;
-    word.toLowerCase().split('').find(a => {
+    word.toLowerCase().split('').forEach(a => {
         if(a === letter) {
             result++;
         }
@@ -37,25 +37,26 @@ function countLetter(letter, word) {
 //7 Сurrency Сonverter
 function convertCurrency (money) {
    let convert;
-   if (money.includes('uah')||money.includes('UAH')){
+   if (money.substring(money.length - 3).toLowerCase() === 'uah'){
       convert = (parseInt(money) / 25) + "$";
    } else if (money.includes('$')){
       convert = (parseInt(money) * 25) + "UAH";
    }else{
-      convert = "error";
+      convert = 'Incorrect data';
    }
    return convert;
 }
 //8 RandomPassword
-function getRandomPassword(str){
-return Array.from(new Array(str), () => getRandomNumber(0,9)).join('');
+function getRandomPassword(passwordLength){
+  passwordLength = typeof passwordLength !== 'undefined' ?  passwordLength : 8;
+return Array.from(new Array(passwordLength), () => getRandomNumber(0,9)).join('');
 }
 //9 DeleteLetters
 function deleteLetters(letter,str){
 	return str.toLowerCase().split('').filter(item => item !== letter).join('');
 }
 //10 Palyndrom
-function Palyndrom(str) {
+function isPalyndrom(str) {
 const variable = str.toLowerCase();
 return variable === variable.split('').reverse().join('');
 }
@@ -77,8 +78,8 @@ for (let i = 0; i < sentence.length; i++) {
  document.writeln(`<p> Function #4 - ${getTaxes(1000)}</p>`);
  document.writeln(`<p> Function #5 - ${getRandomNumber(1, 10)}</p>`);
  document.writeln(`<p> Function #6 - ${countLetter('a', 'Astalavista')}</p>`);
- document.writeln(`<p> Function #7 - ${convertCurrency('2500UAH',convertCurrency('100$'))}</p>`);
+ document.writeln(`<p> Function #7 - ${convertCurrency('2500UAH')}</p>`);
  document.writeln(`<p> Function #8 - ${getRandomPassword(8)}</p>`);
  document.writeln(`<p> Function #9 - ${deleteLetters('a', 'blablabla')}</p>`);
- document.writeln(`<p> Function #10 - ${Palyndrom('madam')}</p>`);
+ document.writeln(`<p> Function #10 - ${isPalyndrom('madam')}</p>`);
  document.writeln(`<p> Function #11 - ${deleteDuplicateLetter('Бисквит был очень нежный')}</p>`);
