@@ -16,8 +16,8 @@ function firstLetter(name){
 }
 //4 Tax
 function getTaxes(salary){
-	const tax = 19.5/100;
-	const freeTax = salary - (salary*tax);
+	const tax = 19.5;
+	const freeTax = salary - (salary*tax/100);
     return freeTax;
 }
 //5 Random Number
