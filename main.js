@@ -42,7 +42,7 @@ function convertCurrency (money) {
    } else if (money.includes('$')){
       convert = (parseInt(money) * 25) + "UAH";
    }else{
-      convert = 'Incorrect data';
+      throw new Error('Incorrect data');
    }
    return convert;
 }
@@ -78,7 +78,7 @@ for (let i = 0; i < sentence.length; i++) {
  document.writeln(`<p> Function #4 - ${getTaxes(1000)}</p>`);
  document.writeln(`<p> Function #5 - ${getRandomNumber(1, 10)}</p>`);
  document.writeln(`<p> Function #6 - ${countLetter('a', 'Astalavista')}</p>`);
- document.writeln(`<p> Function #7 - ${convertCurrency('2500UAH')}</p>`);
+ document.writeln(`<p> Function #7 - ${convertCurrency('2500uah')}</p>`);
  document.writeln(`<p> Function #8 - ${getRandomPassword(8)}</p>`);
  document.writeln(`<p> Function #9 - ${deleteLetters('a', 'blablabla')}</p>`);
  document.writeln(`<p> Function #10 - ${isPalyndrom('madam')}</p>`);
